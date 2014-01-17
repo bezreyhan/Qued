@@ -1,0 +1,31 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="main.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.min.js"></script>
+	<title>Qued</title>
+</head>
+<body>
+	<div x-ng-app="" x-ng-controller="appCtrl" id="deck">
+		<h1><span id="q">Q</span>ued</h1>
+		<div id="items"> 
+			<div x-ng-repeat="item in list" class="item">
+				<span class="subItem">{{item.name}}</span>
+				<span class="subItem">{{item.topic}}</span>
+			</div>
+		</div>
+		<form x-ng-submit="addItem()">
+			<div>
+				<label>Name</label>
+				<input x-ng-model="nameInput" type="text" placeholder="Add your name to get Qued">
+				<input type="submit" value="Get Qued"></button>
+			</div>
+			<div>	
+				<label>Topic</label>
+				<input x-ng-model="topicInput" type="text" placeholder="what is your question about?">
+			</div>	
+		</form>		
+	</div>	
+
+</body>
+</html>
