@@ -19,10 +19,12 @@ h1 {
 
 #q {
 	font-size: 77px;
+	font-weight: bold;
 }
 
 .item {
 	width: 350px;
+	min-height: 73px;
 	border: 1px solid black;
 	margin: 0 auto 15px;
 	position: relative;
@@ -50,6 +52,33 @@ h1 {
 	font-size: 18px
 }
 
+.addNameOn {
+	position: absolute;
+	top: 4px;
+	width: 70px;
+	margin-left: 5px;
+	font-family: 'Lato', 'Mono', helvetica;
+}
+
+.addNameOff {
+	display: none;
+}
+
+.people {
+	display:none;
+	background: gray;
+	position: absolute;
+	top: 27px;
+	border-radius: 5px;
+	padding: 1px;
+	font-family: 'Lato', 'Mono', helvetica;
+	font-size: 11px;
+}
+
+/*.people:hover {
+	display: block;
+}*/
+
 .remove {
 	position: absolute;
 	top: 2px;
@@ -57,10 +86,11 @@ h1 {
 	color: black;
 	width: 15px;
 	height:15px	;
-	transition: color .1s;
+/*	transition: color .1s;*/
 	text-align: center;
 	font-size: 15px;
 	cursor: pointer;
+	font-family: 'Lato', 'Mono', helvetica;
 }
 
 .remove:hover {
@@ -110,5 +140,34 @@ button[type=submit] {
 
 button[type=submit]:hover {
 	font-size: 24px
+}
+
+@media (max-width: 480px) {
+	#deck {
+		width:290px;
+	}
+
+	.item {
+		width: 250px;
+	}
+
+	.remove {
+		position: absolute;
+		top: 3px;
+		left: 230px;
+		color: #ff3399;
+	}		
+	
+	#inputs {
+	display: block;
+	}
+
+	button[type=submit] {
+		float: none;
+		display: block;
+		margin: 9px auto;
+		width: 200px;
+		height: 55px
+	}	
 }
 

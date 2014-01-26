@@ -1,25 +1,31 @@
 <html>
 <head>
 	<link href='http://fonts.googleapis.com/css?family=Lato:300,100italic' rel='stylesheet' type='text/css'>
-	<link href="//fonts.googleapis.com/css?family=PT+Mono:400" rel="stylesheet" type="text/css">
-
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" media="(max-width: 480px)" href="example.css" />
 	<script type="text/javascript" src="main.js"></script>
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.min.js"></script>
 	<link href="//fonts.googleapis.com/css?family=PT+Mono:400" rel="stylesheet" type="text/css">
 	<title>Qued</title>
 </head>
-<body>
-	<div x-ng-app="" x-ng-controller="appCtrl" id="deck">
+
+<!-- onclick="removeInput()" -->
+<body x-ng-app="" x-ng-controller="appCtrl" x-ng-click="removeInput()">
+	<div id="deck">
 		<h1><span id="q">Q</span>ued</h1>
 		<div id="items"> 
-			<div x-ng-repeat="item in list" class="item">
+			<div x-ng-repeat="item in list | orderBy:'-numInt'" class="item" >
 				<span class="subItems">{{item.name}}</span>
 				<span class="topic subItems">{{item.topic}}</span>
-				<span x-ng-click="increment(item)" onmouseover="enlarge(this)" onmouseout="normal(this)" class="numInterested subItems">
-					<span class="plusOne">+</span>
+				<span x-ng-click="clickUpOne(item, $event)" onmouseover="enlarge(this)" onmouseout="normal(this)" class="numInterested subItems keep">
+					<span class="plusOne keep">+</span>
 					{{item.numInt}}
 				</span>
+				<div class="people">{{item.nameInt}}</div>
+				<form x-ng-submit="addName(item)">
+					<input x-ng-class="item.nameOnOff" x-ng-model="item.nameToAdd" type="text" placeholder="+ Your Name" class="keep" >
+				</form>	
+				<div>{{nameToAdd}}</div>
 				<div class="remove" x-ng-click="remove(item)">X</div>
 			</div>
 		</div>
